@@ -29,7 +29,7 @@ get_header();
                 $location = getNearestLocation();
             }
           $selected_location = getNearestLocation();
-          if ($selected_location != $location['id'] && ($location["olo_url"] || $location["door_dash_id"])) {
+          if ($selected_location != $location['id']) {
               echo "<h2 style='margin-bottom:10px;'>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a></h2><div style='margin:10px auto; text-align:center;'>";
           } else {
               echo "<h2>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a></h2><div style='margin:10px auto; text-align:center;'>";
@@ -50,7 +50,7 @@ get_header();
                                 echo "</div>";
                             }
                         } else {
-                            echo '<div style="margin-bottom:60px;"><a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . get_post_type_archive_link('location') . '?latitude=' . $location['latitude'] . '&longitude=' . $location['longitude'] . '">Make Selected Location <i class="icon icon-angle-right"></i></a></div>';
+                            echo '<div style="margin-bottom:60px;"><a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . get_post_type_archive_link('location') . '?latitude=' . $location['latitude'] . '&longitude=' . $location['longitude'] . '">Make Selected Location <i class="icon icon-angle-right"></i></a></div></div>';
                         }
 
 
