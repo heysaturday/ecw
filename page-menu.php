@@ -45,7 +45,8 @@ get_header();
                                                 echo '
 					<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="', $location['olo_url'] ? $location['olo_url'] : the_field('order_online_url', 'option'), '" target="_blank">Order for Pickup <i class="icon icon-angle-double-right"></i></a>';
                                             } else {
-                                                echo '<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . get_post_type_archive_link('location') . '?latitude=' . $location['latitude'] . '&longitude=' . $location['longitude'] . '">Make Selected Location <i class="icon icon-angle-right"></i></a>';
+                                                echo '<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . get_post_type_archive_link('location') . '?latitude=' . $location['latitude'] . '&longitude=' . $location['longitude'] . '">Make Selected Location <i class="icon icon-angle-right"></i></a>
+																											<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . get_post_type_archive_link('location') . '">View All Locations <i class="icon icon-angle-right"></i></a>';
                                             }
                                                                                         echo "</div>";
 
