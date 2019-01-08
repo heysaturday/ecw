@@ -32,7 +32,7 @@ get_header();
           if ($selected_location['id'] != $location['id']) {
               echo "<h2 style='margin-bottom:10px;'>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a></h2>";
           } else {
-              echo "<h2 style='margin-bottom:10px;'>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a> <a style='color:#999;' href=" . get_post_type_archive_link('location') . "> (Change)</a></h2>";
+              echo "<h2 style='margin-bottom:10px;'><a href=" . $location["permalink"] . ">" . $location["title"] . "</a> <a style='color:#999;' href=" . get_post_type_archive_link('location') . "> (Change)</a></h2>";
           }
 
                     echo "<div style='margin-bottom:60px; text-align:center;'>";
