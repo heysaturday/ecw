@@ -30,28 +30,24 @@ get_header();
             }
           $selected_location = getNearestLocation();
           if ($selected_location != $location['id']) {
-              echo "<h2 style='margin-bottom:10px;'>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a></h2><div style='margin:10px auto; text-align:center;'>";
+              echo "<h2 style='margin-bottom:10px;'>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a></h2>";
           } else {
-              echo "<h2>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a></h2><div style='margin:10px auto; text-align:center;'>";
+              echo "<h2>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a></h2>";
           }
 
+                    echo "<div style='margin-bottom:60px; text-align:center;'>";
+                                            if ($selected_location['id'] == $location['id']) {
+                                                if ($location['door_dash_id']) {
+                                                    echo '
+					<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="https://www.doordash.com/store/' . $location['door_dash_id'] . '/?utm_source=partner-link&utm_medium=website&utm_campaign=' . $location['door_dash_id'] . '" target="_blank">Order for Delivery <i class="icon icon-angle-double-right"></i></a>';
+                                                }
 
-                        if ($selected_location['id'] == $location['id']) {
-                            if ($location['olo_url'] || $location['door_dash_id']) {
-                                echo "<div style='margin-bottom:60px;'>";
-                                if ($location['door_dash_id']) {
-                                    echo '
-<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="https://www.doordash.com/store/' . $location['door_dash_id'] . '/?utm_source=partner-link&utm_medium=website&utm_campaign=' . $location['door_dash_id'] . '" target="_blank">Order for Delivery <i class="icon icon-angle-double-right"></i></a>';
-                                }
-                                if (get_field('order_online_url', 'option')) {
-                                    echo '
-<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="', $location['olo_url'] ? $location['olo_url'] : the_field('order_online_url', 'option'), '" target="_blank">Order for Pickup <i class="icon icon-angle-double-right"></i></a></div>';
-                                }
-                                echo "</div>";
-                            }
-                        } else {
-                            echo '<div style="margin-bottom:60px;"><a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . get_post_type_archive_link('location') . '?latitude=' . $location['latitude'] . '&longitude=' . $location['longitude'] . '">Make Selected Location <i class="icon icon-angle-right"></i></a></div></div>';
-                        }
+                                                echo '
+					<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="', $location['olo_url'] ? $location['olo_url'] : the_field('order_online_url', 'option'), '" target="_blank">Order for Pickup <i class="icon icon-angle-double-right"></i></a>';
+                                            } else {
+                                                echo '<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . get_post_type_archive_link('location') . '?latitude=' . $location['latitude'] . '&longitude=' . $location['longitude'] . '">Make Selected Location <i class="icon icon-angle-right"></i></a>';
+                                            }
+                                                                                        echo "</div>";
 
 
 
