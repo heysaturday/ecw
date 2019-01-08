@@ -29,10 +29,10 @@ get_header();
                 $location = getNearestLocation();
             }
           $selected_location = getNearestLocation();
-          if ($selected_location != $location['id']) {
+          if ($selected_location['id'] != $location['id']) {
               echo "<h2 style='margin-bottom:10px;'>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a></h2>";
           } else {
-              echo "<h2>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a></h2>";
+              echo "<h2 style='margin-bottom:10px;'>Menu for <a href=" . $location["permalink"] . ">" . $location["title"] . "</a> <a style='color:#999;' href=" . get_post_type_archive_link('location') . "> (Change)</a></h2>";
           }
 
                     echo "<div style='margin-bottom:60px; text-align:center;'>";
@@ -45,7 +45,7 @@ get_header();
                                                 echo '
 					<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="', $location['olo_url'] ? $location['olo_url'] : the_field('order_online_url', 'option'), '" target="_blank">Order for Pickup <i class="icon icon-angle-double-right"></i></a>';
                                             } else {
-                                                echo '<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . get_post_type_archive_link('location') . '?latitude=' . $location['latitude'] . '&longitude=' . $location['longitude'] . '">Make Selected Location <i class="icon icon-angle-right"></i></a>
+                                                echo '<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . the_permalink('menu') . '?latitude=' . $location['latitude'] . '&longitude=' . $location['longitude'] . '">Make Selected Location <i class="icon icon-angle-right"></i></a>
 																											<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . get_post_type_archive_link('location') . '">View All Locations <i class="icon icon-angle-right"></i></a>';
                                             }
                                                                                         echo "</div>";
