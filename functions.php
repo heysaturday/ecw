@@ -269,23 +269,38 @@
 	//////////////////////////////////////////////////
 	// HIDE ELEMENTS WITHIN WORDPRESS ADMIN
 	//////////////////////////////////////////////////
+	
+
+		//Backup Buddy Remove
+		add_action('admin_head', 'custom_admin_css');
+
+		function custom_admin_css() {
+  			echo '<style>
+    		li#toplevel_page_pb_backupbuddy_backup {
+    		display: none;
+			}
+  			</style>';
+		}
 
 		// Removes from admin menu
 		function themeRemoveAdminMenus() {
 			//remove_menu_page('edit.php'); // Posts
-			remove_menu_page('upload.php'); // Media
+			//remove_menu_page('upload.php'); // Media
 			remove_menu_page('link-manager.php'); // Links
 			remove_menu_page('edit-comments.php'); // Comments
 			//remove_menu_page('edit.php?post_type=page'); // Pages
-			//remove_menu_page('plugins.php'); // Plugins
-			//remove_menu_page('themes.php'); // Appearance
+			remove_menu_page('plugins.php'); // Plugins
+			remove_menu_page('themes.php'); // Appearance
 			//remove_menu_page('users.php'); // Users
-			//remove_menu_page('tools.php'); // Tools
-			//remove_menu_page('options-general.php'); // Settings
-			//remove_menu_page('edit.php?post_type=acf'); // Custom Fields
-			//remove_menu_page('edit.php?post_type=acf-field-group'); // Custom Fields Pro
+			remove_menu_page('tools.php'); // Tools
+			remove_menu_page('options-general.php'); // Settings
+			remove_menu_page('edit.php?post_type=acf'); // Custom Fields
+			remove_menu_page('edit.php?post_type=acf-field-group'); // Custom Fields Pro
+			remove_menu_page('admin.php?page=pb_backupbuddy'); // BackupBuddy
 		}
-		add_action('admin_menu', 'themeRemoveAdminMenus', 999);
+		add_action('admin_menu', 'themeRemoveAdminMenus', 9999);
+
+		
 
 		// Removes from post and pages
 		function themeRemoveCommentSupport() {
