@@ -36,18 +36,28 @@ get_header();
           }
 
                     echo "<div style='margin-bottom:60px; text-align:center;'>";
+
                                             if ($selected_location['id'] == $location['id']) {
                                                 if ($location['door_dash_id']) {
                                                     echo '
 					<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="https://www.doordash.com/store/' . $location['door_dash_id'] . '/?utm_source=partner-link&utm_medium=website&utm_campaign=' . $location['door_dash_id'] . '" target="_blank">Order for Delivery <i class="icon icon-angle-double-right"></i></a>';
                                                 }
 
+
+
                                                 echo '
-					<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="', $location['olo_url'] ? $location['olo_url'] : the_field('order_online_url', 'option'), '" target="_blank">Order for Pickup <i class="icon icon-angle-double-right"></i></a>';
+					<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="', the_field('order_online_url', 'option'), '" target="_blank">Order for Pickup <i class="icon icon-angle-double-right"></i></a>';
+                                                if ($location['catering']) {
+                                                    echo '
+<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="https://www.ezcater.com/brand/pvt/east-coast-wings" target="_blank">Catering <i class="icon icon-angle-double-right"></i></a>
+
+';
+                                                }
                                             } else {
                                                 echo '<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . the_permalink('menu') . '?latitude=' . $location['latitude'] . '&longitude=' . $location['longitude'] . '">Make Selected Location <i class="icon icon-angle-right"></i></a>
 																											<a style="margin-bottom:10px; min-width:200px;" class="button-orange" href="' . get_post_type_archive_link('location') . '">View All Locations <i class="icon icon-angle-right"></i></a>';
                                             }
+
                                                                                         echo "</div>";
 
 
